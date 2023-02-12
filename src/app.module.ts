@@ -1,3 +1,4 @@
+import { AuditRequestModule } from "@/modules/auditRequest/auditRequest.module";
 import { WhiteListedModule } from "@/modules/white_listed_address/white_listed_address.module";
 import { PostgresDatabaseProviderModule } from "@/providers/database/postgres/provider.module";
 import { Module } from "@nestjs/common";
@@ -6,6 +7,7 @@ import { ConfigModule } from "@nestjs/config";
 @Module({
   imports: [
     WhiteListedModule,
+    AuditRequestModule,
     PostgresDatabaseProviderModule,
     ConfigModule.forRoot({
       isGlobal: true,

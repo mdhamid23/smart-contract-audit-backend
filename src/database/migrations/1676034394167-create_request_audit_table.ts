@@ -21,7 +21,7 @@ export class createRequestAuditTable1676034394167
           { name: "number_of_smart_contract", type: "int", isNullable: false },
           { name: "project_link", type: "varchar", isNullable: false },
           { name: "has_document", type: "boolean", isNullable: false },
-          { name: "platform", type: "json", isNullable: false },
+          { name: "platform", type: "varchar", isNullable: false },
           { name: "platform_id", type: "int", isNullable: false },
           { name: "expected_date", type: "timestamp", isNullable: false },
           { name: "loc", type: "int", isNullable: false },
