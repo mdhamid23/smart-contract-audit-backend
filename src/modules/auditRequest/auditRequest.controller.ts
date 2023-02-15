@@ -21,8 +21,8 @@ export class AuditRequestController {
 
   @Post()
   createOne(@Body(new ValidationPipe()) body: any) {
-    console.log({body})
-    return {body}
+    console.log({controller:body})
+    return this.auditRequestService.createOne(body)
     
   }
 }

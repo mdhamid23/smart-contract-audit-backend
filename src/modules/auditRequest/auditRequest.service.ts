@@ -42,10 +42,20 @@ export class AuditRequestService {
   }
 
   async createOne(dto: AuditRequestDto) {
-    dto.expected_date = new Date();
-    dto.loc=100;
     console.log(dto)
-    const audit = await this.auditRequestRepository.create(dto);
+    const audit = await this.auditRequestRepository.create({
+      project_name:dto.project_name,
+      contract_type:dto.contract_type,
+      blockchain_frame:dto.blockchain_frame,
+      number_of_smart_contract:dto.number_of_smart_contract,
+      project_link:dto.project_link,
+      has_document:dto.has_document.toString()==="yes"?true:false,
+      platform:dto.platform,
+      platform_id:dto.platform_id,
+      expected_date:dto.expected_date,
+      loc:dto.loc,
+      additional_info:dto.additional_info
+    });
     return await this.auditRequestRepository.save(audit);
   }
 
