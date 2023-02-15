@@ -43,9 +43,10 @@ export class AuditRequestService {
 
   async createOne(dto: AuditRequestDto) {
     dto.expected_date = new Date();
-    return dto;
-    // const audit = this.auditRequestRepository.create(dto);
-    // return await this.auditRequestRepository.save(audit);
+    dto.loc=100;
+    console.log(dto)
+    const audit = await this.auditRequestRepository.create(dto);
+    return await this.auditRequestRepository.save(audit);
   }
 
   //   async updateOne(dto: User) {

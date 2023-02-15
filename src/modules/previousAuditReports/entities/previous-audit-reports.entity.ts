@@ -1,42 +1,27 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity("audit_requests")
-export class AuditRequest {
+@Entity("previous_audit_reports")
+export class PreviousAuditReports {
   @PrimaryGeneratedColumn()
   id?: number;
+
+  @Column()
+  logo_image: string;
 
   @Column()
   project_name: string;
 
   @Column()
-  contract_type: string;
+  access_code: string;
 
   @Column()
-  blockchain_frame: string;
+  benchmark: string;
 
   @Column()
-  number_of_smart_contract: number;
-
-  @Column()
-  project_link: string;
-
-  @Column()
-  has_document: boolean;
+  type: string;
 
   @Column()
   platform: string;
-
-  @Column()
-  platform_id: number;
-
-  @Column()
-  expected_date?: Date;
-
-  @Column()
-  loc: number;
-
-  @Column()
-  additional_info: string;
 
   @Column({
     type: "timestamp",

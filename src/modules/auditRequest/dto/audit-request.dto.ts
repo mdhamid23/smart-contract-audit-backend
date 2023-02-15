@@ -27,7 +27,7 @@ export class AuditRequestDto {
   @IsNotEmpty()
   platform_id: number;
 
-  @IsNotEmpty()
+  @IsOptional()
   expected_date?: Date;
 
   @IsNotEmpty()
