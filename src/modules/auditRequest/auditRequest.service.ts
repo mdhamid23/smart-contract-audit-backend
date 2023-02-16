@@ -54,7 +54,10 @@ export class AuditRequestService {
       platform_id:dto.platform_id,
       expected_date:dto.expected_date,
       loc:dto.loc,
-      additional_info:dto.additional_info
+      additional_info:dto.additional_info,
+      complexity:dto.complexity,
+      is_published:dto.is_published.toString()==="yes"?true:false,
+      
     });
     return await this.auditRequestRepository.save(audit);
   }

@@ -22,10 +22,16 @@ export class AuditRequestDto {
   has_document: boolean;
 
   @IsNotEmpty()
+  is_published: boolean;
+
+  @IsNotEmpty()
   platform: string;
 
   @IsNotEmpty()
-  platform_id: number;
+  complexity: string;
+
+  @IsNotEmpty()
+  platform_id: string;
 
   @IsOptional()
   expected_date?: Date;

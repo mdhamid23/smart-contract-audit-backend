@@ -24,10 +24,16 @@ export class AuditRequest {
   has_document: boolean;
 
   @Column()
+  is_published: boolean;
+
+  @Column()
   platform: string;
 
   @Column()
-  platform_id: number;
+  complexity: string;
+
+  @Column()
+  platform_id: string;
 
   @Column()
   expected_date?: Date;

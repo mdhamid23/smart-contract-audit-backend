@@ -6,6 +6,9 @@ export class PreviousAuditReportsDto{
   
     @IsNotEmpty()
     logo_image: string;
+
+    @IsOptional()
+    document?: string;
   
     @IsNotEmpty()
     project_name: string;
@@ -21,4 +24,7 @@ export class PreviousAuditReportsDto{
   
     @IsNotEmpty()
     platform: string;
+
+    @IsNotEmpty()
+    is_published:boolean
 }

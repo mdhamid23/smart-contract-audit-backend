@@ -15,7 +15,12 @@ export class PreviousAuditReportsService{
 
   async findAll(findOption) {
     try {
-      const data = await this.previousAuditReportsRepository.findAndCount(findOption);
+      const data = await this.previousAuditReportsRepository.findAndCount({
+        ...findOption,
+        where:{
+          is_published:true
+        }
+      });
       return paginateResponse(data);
     } catch (err) {
         console.log(err)
@@ -25,7 +30,12 @@ export class PreviousAuditReportsService{
 
   async findOne(findOption): Promise<PreviousAuditReports | any> {
     try {
-      return await this.previousAuditReportsRepository.findOne(findOption);
+      return await this.previousAuditReportsRepository.findOne({
+        ...findOption,
+        where:{
+          is_published:true
+        }
+      });
     } catch (err) {
       throw new BadRequestException();
     }
@@ -36,6 +46,7 @@ export class PreviousAuditReportsService{
       const data = await this.previousAuditReportsRepository.findOne({
         where: {
           id: id,
+          is_published:true
         },
       });
       return data;

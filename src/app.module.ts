@@ -4,6 +4,7 @@ import { PostgresDatabaseProviderModule } from "@/providers/database/postgres/pr
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { PreviousAuditReportsModule } from "./modules/previousAuditReports/previousAuditReports.module";
+import { SubscriberModule } from "./modules/subscriber/subscriber.module";
 import { TrackAuditProgressModule } from "./modules/trackAuditProgress/trackAuditProgress.module";
 
 @Module({
@@ -13,6 +14,7 @@ import { TrackAuditProgressModule } from "./modules/trackAuditProgress/trackAudi
     PreviousAuditReportsModule,
     PostgresDatabaseProviderModule,
     TrackAuditProgressModule,
+    SubscriberModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),

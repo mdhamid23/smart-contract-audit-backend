@@ -9,6 +9,9 @@ export class PreviousAuditReports {
   logo_image: string;
 
   @Column()
+  document?: string;
+
+  @Column()
   project_name: string;
 
   @Column()
@@ -22,6 +25,9 @@ export class PreviousAuditReports {
 
   @Column()
   platform: string;
+
+  @Column()
+  is_published:boolean
 
   @Column({
     type: "timestamp",
