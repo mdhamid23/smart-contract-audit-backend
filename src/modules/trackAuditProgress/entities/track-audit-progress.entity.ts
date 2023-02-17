@@ -6,19 +6,13 @@ export class TrackAuditProgress {
   id?: number;
 
   @Column()
-  step_1: string;
+  uid: string;
 
   @Column()
-  step_2: string;
+  key: string;
 
   @Column()
-  step_3: string;
-
-  @Column()
-  step_4: string;
-
-  @Column()
-  feedback?: string;
+  value: string;
 
   @Column({
     type: "timestamp",

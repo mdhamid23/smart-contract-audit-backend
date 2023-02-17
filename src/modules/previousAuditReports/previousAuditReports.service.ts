@@ -15,18 +15,50 @@ export class PreviousAuditReportsService{
 
   async findAll(findOption) {
     try {
-      const data = await this.previousAuditReportsRepository.findAndCount({
-        ...findOption,
-        where:{
-          is_published:true
-        }
-      });
+      // const data = await this.previousAuditReportsRepository.findAndCount(
+      //  {...findOption,
+      //   where:{
+      //     is_published:true
+      //   }
+      // }
+      // );
+      const project_name = findOption.where.project_name || "";
+      const data = await this.previousAuditReportsRepository
+      .createQueryBuilder('report')
+      // .setFindOptions(findOption)
+      .where('report.is_published=true',)
+      // .andWhere('report.project_name=:project_name', { project_name: project_name })
+      .setFindOptions(findOption)
+      .getManyAndCount();
+      // return data;
       return paginateResponse(data);
     } catch (err) {
         console.log(err)
       throw new BadRequestException();
     }
   }
+  async test(){
+    const data = await this.previousAuditReportsRepository
+        .createQueryBuilder('report')
+        .where('report.is_published  :true',)
+        .andWhere('report.name = :name', { name: 'Project 1' })
+        .getMany();
+  }
+  // async findAll(findOption) {
+  //   try {
+  //     const data = await this.previousAuditReportsRepository.findAndCount({
+  //       ...findOption
+  //     ,where:{
+
+  //     }
+      
+  //     });
+  //     return paginateResponse(data);
+  //   } catch (err) {
+  //       console.log(err)
+  //     throw new BadRequestException();
+  //   }
+  // }
 
   async findOne(findOption): Promise<PreviousAuditReports | any> {
     try {

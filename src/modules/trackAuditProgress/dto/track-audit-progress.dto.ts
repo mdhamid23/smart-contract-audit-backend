@@ -5,17 +5,11 @@ export class TrackAuditProgressDto{
     id?: number;
   
     @IsOptional()
-    step_1: string;
+    uid: string;
   
     @IsOptional()
-    step_2: string;
+    key: string;
   
     @IsOptional()
-    step_3: string;
-  
-    @IsOptional()
-    step_4: string;
-  
-    @IsOptional()
-    feedback?: string;
+    value: string;
 }

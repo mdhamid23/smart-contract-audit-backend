@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class createTrackAuditProgressTable1676350876975 implements MigrationInterface {
+export class updateTrackAuditProgressTable1676641813075 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
@@ -14,11 +14,13 @@ export class createTrackAuditProgressTable1676350876975 implements MigrationInte
                   isGenerated: true,
                   generationStrategy: "increment",
                 },
-                { name: "step_1", type: "varchar", isNullable: true },
-                { name: "step_2", type: "varchar", isNullable: true },
-                { name: "step_3", type: "varchar", isNullable: true },
-                { name: "step_4", type: "varchar", isNullable: true },
-                { name: "feedback", type: "varchar", isNullable: true },
+                {
+                    name:"uid",
+                    type:"varchar",
+                    isUnique:false,
+                },
+                { name: "key", type: "varchar", isNullable: true },
+                { name: "value", type: "varchar", isNullable: true },
                  {
                   name: "created_at",
                   type: "timestamp",
@@ -37,7 +39,6 @@ export class createTrackAuditProgressTable1676350876975 implements MigrationInte
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("track_audit_progress", true);
     }
 
 }
